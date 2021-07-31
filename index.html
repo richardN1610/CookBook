@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
     <nav class="nav-bar">
         <div class="logo">
-            <img src="./logo.png" alt="">
+            <span>CookBook</span>
         </div>
 
         <div class="login">
@@ -22,7 +26,7 @@
                     Password: <input type="password" class="password" id="password" name="password">
                 </div>
                 <div class="login-btn">
-                    <button class="login-btn">Log In</button>
+                    <button class="login-button">Login</button>
                 </div>
             </form>
             <div>
@@ -33,13 +37,36 @@
 
     <div class="body-contents">
         <div class="web-details">
-            <div class="header">
-                <span>Share and learn the best cooking recipes in the world on CookBook</span>
+            <div class="items-container">
+                <div class="header">
+                    <i class="fas fa-book"></i>
+                    <span>Share and learn the best cooking recipes in the world on CookBook. <br>
+                        It's time to be a superstar in the kitchen.</span>
+                </div>
+                <div class="header-2">
+                    <i class="fab fa-gratipay"></i>  Follow your favourite chef for latest receipes.
+                </div>
+                <div class="header-3">
+                    <i class="fas fa-users"></i> Join community/group to explore more about other cultures.
+                </div>
             </div>
         </div>
         <div class="sign-up-details">
-            text
+            <div class="form-title">Sign Up</div>
+            <div class="form-title2">It will always be free.</div>
             <form action="/" class="sign-up-form">
+                <div class="sign-up-name">
+                    <input type="text" class="sign-up-name" id="s-name" placeholder="Username">
+                </div>
+                <div class="sign-up-password">
+                    <input type="password" class="sign-up-password" id="s-password" placeholder="Password">
+                </div>
+                <div class="sign-up-email">
+                    <input type="email" class="sign-up-email" id="s-email" placeholder="Email Address">
+                </div>
+                <div class="sign-up-btn">
+                    <button class="sign-up" id="sign-up">Create Account</button>
+                </div>
             </form>
         </div>
     </div>

@@ -2,28 +2,31 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Hahmlet', serif;
 }
 
 .nav-bar{
     height: 8vh;
-    background-color: rgb(45, 224, 255);
+    background-color: rgba(105, 153, 230, 0.863);
 }
 
 .logo{
     position: absolute;
     left: 1%;
+    font-size: 2.7rem;
+    color: rgb(228, 222, 222);
+}
+.login a{
+    text-decoration: none;
+    color: inherit;
 }
 
-.logo img{
-    width: 75px;
-    height: 75px;
-}
 
 .login{
     position: absolute;
-    top: 1.5vh;
     right: 2%;
     float: right;
+    font-weight: bold;
 }
 
 .login-form{
@@ -36,15 +39,57 @@
     display: grid;
     grid-template-columns: 1.4fr 1fr; /*making 2 grid columns using fraction unit */
     height: 92vh;
-}
-
-.header{
-    font-size: 2rem;
+    background-image: linear-gradient(white, rgb(79, 130, 224));
 }
 
 .web-details{
-    background-color: lightskyblue;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.items-container{
+    width: 55vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
 .sign-up-details{
-    background: lightcyan;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+.form-title{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.form-title2{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.sign-up-details input[type="text"], .sign-up-details input[type="password"],.sign-up-details input[type="email"]{
+    font-size: 1.5rem;
+    width: 25vw;
+    margin-top: 5vh;
+}
+.sign-up{
+    margin-top: 3vh;
+    font-size: 1.7rem;
+    border-radius: 20px;
+    background-color: rgb(238, 168, 77);
+}
+.sign-up:hover{
+    cursor: pointer;
+}
+.login-button{
+    background-color: rgb(103, 155, 238);
+    color: white;
+}
+.login-button:hover{
+    cursor: pointer;
 }
