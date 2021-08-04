@@ -17,7 +17,6 @@ html{
     display: flex;
     flex-direction: row;
     gap: 100px;
-    width: 100vw;
     height: 7vh;
     background-color: #242526;
     position: sticky;
@@ -113,4 +112,42 @@ textarea{
     font-size: 1.5rem;
     color: 	#888a8d;
     background-color: #e4e6eb;
+}
+.post-btn:hover{
+    cursor: pointer;
+    background-color: #7c7e83;
+}
+.trends{
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    gap: 15px;
+}
+.trending{
+    font-size: 2.5rem;
+    text-align: center;
+}
+.food-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.recipe{
+    border: 2px solid rgb(158, 158, 167);
+    border-radius: 10px;
+}
+.food-description{
+    font-size: 1rem;
+}
+.recipe:hover{
+    background-color: rgb(61, 61, 70);
+    cursor: pointer;
+}
+.fa-fire-alt{
+    color: orange;
+}
+
+.fas:hover{
+    cursor: pointer;
 }
