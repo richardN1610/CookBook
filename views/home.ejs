@@ -10,14 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/home.css">
     <title>CookBook</title>
 </head>
 
 <body>
     <div class="nav-bar">
         <div class="nav-logo">
-            <img src="/logo.png" class="logo">
+            <img src="/images/logo.png" class="logo">
         </div>
         <div class="nav-search">
             <input type="text" id="search" placeholder="    Search...">
@@ -41,13 +41,13 @@
     <div class="body-contents">
         <div class="category-menu">
             <ul class="food-list">
-                <li><img src="/chicken.png"> Chicken</li>
-                <li><img src="/beef.png"> Beef</li>
-                <li><img src="/beef.png"> Pork</li>
-                <li><img src="/lamb.png"> Lamb</li>
-                <li><img src="/fish.png"> Seafood</li>
-                <li><img src="/vege.png"> Vegan</li>
-                <li><img src="/dessert.png"> Dessert</li>
+                <li><img src="/images/chicken.png"> Chicken</li>
+                <li><img src="/images/beef.png"> Beef</li>
+                <li><img src="/images/beef.png"> Pork</li>
+                <li><img src="/images/lamb.png"> Lamb</li>
+                <li><img src="/images/fish.png"> Seafood</li>
+                <li><img src="/images/vege.png"> Vegan</li>
+                <li><img src="/images/dessert.png"> Dessert</li>
             </ul>
         </div>
         <div class="middle-contents">
@@ -62,55 +62,23 @@
                 </form>
             </div>
         </div>
+        
         <div class="trends">
             <div class="trending">Trending
                 <i class="fas fa-fire-alt"></i>
-
             </div>
-            <div class="recipe">
+            <% items.Trending.forEach(function(item){ %>        <%#looping through the json file %>
+            <div class="recipe" data-item-id="<%= item.id %>">      <%#assigning ID accordingly %>
                 <div class="food-title">
-                    4-ingredient butter chicken recipe
+                    <%= item.name %>                <%#assigning item name %>
                 </div>
                 <div class="food-description">
-                    Packed with flavour and simple ingredients, this quick and easy butter chicken is a perfect weeknight dinner recipe.
+                    <%= item.description %>
                 </div>
             </div>
-            <div class="recipe">
-                <div class="food-title">
-                    Teriyaki beef stir-fry
-                </div>
-                <div class="food-description">
-                    A quicker beef stir-fry recipe - this one uses beef mince, which absorbs the flavours and sauce to be become the tastiest of morsels.
-                </div>
-            </div>
-            <div class="recipe">
-                <div class="food-title">
-                    Healthy fish nacho bowl
-                </div>
-                <div class="food-description">
-                    Ready in 17 minutes, this fish nacho bowl is perfect for busy school nights.
-                    You can also serve the fish and salad in corn tortillas for a twist
-                </div>
-            </div>
-            <div class="recipe">
-                <div class="food-title">
-                    Tandoori lamb with asparagus salad
-                </div>
-                <div class="food-description">
-                    Fire up the barbecue with these delicious Australian lamb cutlets that'll add an irresistible Indian spice to the dinner table!
-                </div>
-            </div>
-            <div class="recipe">
-                <div class="food-title">
-                    Ultimate vegan breakfast wrap
-                </div>
-                <div class="food-description">
-                    Packed with black beans and avocado, 
-                    this quick and easy vegan breakfast wrap will fuel you for the day ahead.
-                </div>
-            </div>
+            <% }) %>
         </div>
+
     </div>
 </body>
-
 </html>
