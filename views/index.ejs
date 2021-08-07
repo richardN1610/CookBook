@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script src="/index.js" defer></script>
     <title>CookBook</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
         </div>
 
         <div class="login">
-            <form class="login-form">
+            <form class="login-form" id="login-form">
                 <div class="user-name">
                     Username: <input type="text" class="username" id="username" name="username">
                 </div>
@@ -54,7 +55,8 @@
         <div class="sign-up-details">
             <div class="form-title">Sign Up</div>
             <div class="form-title2">It will always be free.</div>
-            <form action="/" class="sign-up-form">
+            
+            <form class="sign-up-form" id="s-form">
                 <div class="sign-up-name">
                     <input type="text" class="sign-up-name" id="s-name" placeholder="Username">
                 </div>
