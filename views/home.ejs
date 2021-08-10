@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/home.css">
+    <script src="home.js" defer></script>
     <title>CookBook</title>
 </head>
 
@@ -24,10 +25,7 @@
         </div>
         <div class="user-control">
             <div class="nav-username">
-                <span>Admin</span>
-            </div>
-            <div class="nav-messages">
-                <i class="far fa-comment-dots"></i>
+                <span id="username"></span>
             </div>
             <div class="nav-friends">
                 <i class="fas fa-user-friends"></i>
@@ -52,33 +50,49 @@
         </div>
         <div class="middle-contents">
             <div class="post">
-                <form action="#" class="post-status">
+                <form class="post-status">
                     <div class="post-msg">
-                        <textarea class="input-msg" name="input-msg" id="input-msg" rows="1" placeholder="What's for dinner?"></textarea>
+                        <textarea class="input-msg" name="input-msg" id="input-msg" rows="1"
+                            placeholder="Share your favourite recipes with others."></textarea>
                     </div>
                     <div class="post-btn">
                         <button class="post-btn" id="post-btn">Post</button>
                     </div>
+                    <%userpost.forEach(post=> {%>
+                        <div class="post-box">
+                            <div class="msg-box">
+                                <%= post.userpost %>
+                            </div>
+                            <div class="like">
+                                <i class="fab fa-gratipay"> Love</i>
+                                <i class="far fa-thumbs-down"> Dislike</i>
+                            </div>
+                        </div>
+                    <% })%>
                 </form>
-            </div>
         </div>
-        
-        <div class="trends">
-            <div class="trending">Trending
-                <i class="fas fa-fire-alt"></i>
-            </div>
-            <% items.Trending.forEach(function(item){ %>        <%#looping through the json file %>
-            <div class="recipe" data-item-id="<%= item.id %>">      <%#assigning ID accordingly %>
-                <div class="food-title">
-                    <%= item.name %>                <%#assigning item name %>
-                </div>
-                <div class="food-description">
-                    <%= item.description %>
-                </div>
-            </div>
-            <% }) %>
-        </div>
-
     </div>
+
+    <div class="trends">
+        <div class="trending">Trending
+            <i class="fas fa-fire-alt"></i>
+        </div>
+        <% items.Trending.forEach(function(item){ %>
+            <%#looping through the json file %>
+                <div class="recipe" data-item-id="<%= item.id %>">
+                    <%#assigning ID accordingly %>
+                        <div class="food-title">
+                            <%= item.name %>
+                                <%#assigning item name %>
+                        </div>
+                        <div class="food-description">
+                            <%= item.description %>
+                        </div>
+                </div>
+                <% }) %>
+    </div>
+    </div>
+
 </body>
+
 </html>

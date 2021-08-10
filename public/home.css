@@ -28,12 +28,13 @@ html{
 }
 
 input[type="text"]{
-    width: 15vw;
-    height: 3.5vh;
+    width: 20vw;
+    height: 4.5vh;
     margin-top: 5px;
     border-radius: 50px;
     font-size: 1.2rem;
     outline: none;
+    padding-left: 10px;
 }
 
 .user-control{
@@ -149,5 +150,38 @@ textarea{
 }
 
 .fas:hover{
+    cursor: pointer;
+}
+
+.post-box{
+    margin-top: 3vh;
+    width: 48vw;
+    height: 20vh;
+    background-color: #242526;
+    border-radius: 5px;
+    color: beige;
+    padding: 5px 10px;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg-box{
+    width: 46vw;
+    height: 15vh;
+    margin-top: 5px;
+    border-bottom: 2px solid #515353;
+    overflow: auto;
+}
+
+.like{
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+.like i:hover{
     cursor: pointer;
 }

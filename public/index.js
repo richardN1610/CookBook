@@ -21,12 +21,17 @@ async function SignUp(event){
         })
     }).then((res) => res.json())
     if (result.status === 'ok') {
+        window.location.href = "/";
         alert('Your account has been created')
     } else {
         alert(result.error)
     }
 }
-
+        //saving username to local storage, so that I can access username and display it on another html file since im not using the GET method.
+function saveData(){
+    const username = document.getElementById('username').value;
+    localStorage.setItem("username", username);
+}
 async function CheckDetails(event){
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;

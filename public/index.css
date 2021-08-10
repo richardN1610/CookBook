@@ -4,10 +4,14 @@
     box-sizing: border-box;
     font-family: 'Hahmlet', serif;
 }
+html{
+    background-color: #18191a;
+}
 
 .nav-bar{
     height: 10vh;
-    background-color: rgba(105, 153, 230, 0.863);
+    background-color: #242526;
+    color: wheat;
 }
 
 .logo{
@@ -37,8 +41,8 @@
 .body-contents{
     display: grid;
     grid-template-columns: 1.4fr 1fr; /*making 2 grid columns using fraction unit */
+    color: wheat;
     height: 92vh;
-    background-image: linear-gradient(white, rgb(79, 130, 224));
 }
 
 .web-details{
@@ -80,13 +84,14 @@
     margin-top: 3vh;
     font-size: 1.7rem;
     border-radius: 20px;
-    background-color: rgb(238, 168, 77);
+    background-color: rgb(59, 59, 59);
+    color: wheat;
 }
 .sign-up:hover{
     cursor: pointer;
 }
 .login-button{
-    background-color: rgb(103, 155, 238);
+    background-color: #18191a;
     color: white;
 }
 .login-button:hover{
