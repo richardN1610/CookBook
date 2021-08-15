@@ -6,14 +6,17 @@ const session = require('express-session');
 const connectDB = require('./connection');
 const userDetails = require('./user');
 const UserPost = require('./userpost');
+const { isObject } = require('util');
+const server = require('http').createServer(app);
+const io = require('socket.io')(server,{cors: {origin :"*"}});
 //connecting mongoose from connection.js
 connectDB();
 
-let isAuthenticated = true;
+var isAuthenticated = false;
 
 app.set('view engine', 'ejs');   //setting view engine to ejs
 app.use(express.static('public'))  //telling the app to look for the front-end files in public folder
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // for parsing application/json
 
 app.get('/', (req, res) => {
     res.render('index.ejs')
@@ -36,7 +39,6 @@ app.get('/home', (req, res) => {
                 });
             }
         })
-
     } else {
         res.render('index.ejs');
     }
@@ -81,21 +83,27 @@ app.post('/', async (req, res) => {
             }
         }
     }
-
 })
 
-app.post('/home', async (req, res) => {
-    const userInput = req.body.userInput;   //getting input from client
-    try {
-        const post = await UserPost.create({
-            userpost: userInput
-        })
-    } catch (error) {
-        return res.json({ status: 'error', error: 'Sorry, please try again' })
-    }
-    return res.json({ status: 'posted' })
+app.post('/home', async (req,res) =>{
+    isAuthenticated = false;
+    return res.json({status: "logged-out"})
 })
 
-app.listen(3000, () => {
+//have to user server.listen instead of app
+server.listen(3000, () => {
     console.log("Server is started")
 });
+
+io.on('connection', (socket) =>{  
+    socket.on("message",(data)=>{
+        //saving data to the database
+        const newPost = UserPost.create({
+            userpost: data
+        })
+    })
+    socket.on('message',data =>{
+        io.emit('message',data) //io will send the 'message' to all the user on the server
+        //if I use socket then it will only send to the current user.
+    })
+})

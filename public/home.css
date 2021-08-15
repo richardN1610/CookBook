@@ -13,6 +13,9 @@ html{
     position: absolute;
     left: 1vw;
 }
+.logo:hover{
+    cursor: pointer;
+}
 .nav-bar{
     display: flex;
     flex-direction: row;
