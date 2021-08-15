@@ -103,7 +103,7 @@ io.on('connection', (socket) =>{
         })
     })
     socket.on('message',data =>{
-        io.emit('message',data) //io will send the 'message' to all the user on the server
+        socket.emit('message',data) //io will send the 'message' to all the user on the server
         //if I use socket then it will only send to the current user.
     })
 })
