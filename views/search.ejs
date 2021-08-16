@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+    <script src="search.js" type="module"></script> <!--type="module" to solve the issue cannot import module outside..., simpliest solution I found-->
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-logo">
+            <img src="/images/logo.png" class="logo" id="logo">
+        </div>
+        <div class="nav-search">
+            <input type="text" id="search" placeholder="    Search...">
+        </div>
+        <div class="user-control">
+            <div class="nav-username">
+                <span id="username"></span>
+            </div>
+            <div class="nav-friends">
+                <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="sign-out">
+                <i class="fas fa-sign-out-alt" id="logout"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-contents">
+        <div class="category-menu">
+            <ul class="food-list">
+                <li><img src="/images/chicken.png"> Chicken</li>
+                <li><img src="/images/beef.png"> Beef</li>
+                <li><img src="/images/beef.png"> Pork</li>
+                <li><img src="/images/lamb.png"> Lamb</li>
+                <li><img src="/images/fish.png"> Seafood</li>
+                <li><img src="/images/vege.png"> Vegan</li>
+                <li><img src="/images/dessert.png"> Dessert</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

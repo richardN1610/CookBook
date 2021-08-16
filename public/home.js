@@ -4,38 +4,17 @@ if (document.readyState == 'loading') {
 } else {
     ready();
 }
-
+import {GetUser, LogOut} from './nav.js';
 function ready() {
     const logout = document.getElementById('logout');
     GetUser();
     logout.addEventListener('click', LogOut);
-}
-//sending logout req to server
-async function LogOut(){
-    const logout = "logout"
-    const result = await fetch('./home',{
-        method: "POST",
-        headers : {
-            'Content-Type' : 'application/json'
-        },body:JSON.stringify({
-            logout
-        })
-    }).then((res) => res.json())
-    if (result.status === 'logged-out') {
-        alert('You have logged out')
-        window.location.href = "/";
-    }
 }
 
 const logo = document.getElementById('logo');
 logo.addEventListener('click', ()=>{    //onclick refresh the page.
     window.location.href = "/home";
 })
-
-async function GetUser() {
-    const name = localStorage.getItem("username");
-    document.getElementById("username").innerHTML = name;
-}
 
 var socket = io('http://localhost:3000');
 socket.on("message", data => {

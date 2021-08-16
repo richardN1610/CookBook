@@ -56,8 +56,6 @@ input[type="text"]{
 }
 
 .food-list li{
-    width: 10vw;
-    height: 7vh;
     text-align: left;
     font-size: 1.8vw;
     margin-left: 3vw;

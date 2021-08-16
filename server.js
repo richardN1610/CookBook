@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const connectDB = require('./connection');
+const connectDB = require('./connection.js');
 const userDetails = require('./user');
 const UserPost = require('./userpost');
 const { isObject } = require('util');
@@ -20,6 +20,10 @@ app.use(bodyParser.json()); // for parsing application/json
 //rendering the index page
 app.get('/', (req, res) => {
     res.render('index.ejs');
+})
+
+app.get('/search', (req,res) =>{
+    res.render('search.ejs');
 })
 
 //rendering home page
