@@ -59,7 +59,7 @@ input[type="text"]{
     width: 10vw;
     height: 7vh;
     text-align: left;
-    font-size: 1.8rem;
+    font-size: 1.8vw;
     margin-left: 3vw;
     list-style: none;
     color: rgb(233, 227, 227);
@@ -67,8 +67,8 @@ input[type="text"]{
     padding-left: 10px;
 }
 .food-list li img{
-    width: 40px;
-    height: 40px;
+    width: 2vw;
+    height: 2vh;
 }
 
 .food-list li:hover{

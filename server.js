@@ -2,7 +2,6 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const session = require('express-session');
 const connectDB = require('./connection');
 const userDetails = require('./user');
 const UserPost = require('./userpost');
@@ -18,10 +17,12 @@ app.set('view engine', 'ejs');   //setting view engine to ejs
 app.use(express.static('public'))  //telling the app to look for the front-end files in public folder
 app.use(bodyParser.json()); // for parsing application/json
 
+//rendering the index page
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.render('index.ejs');
 })
 
+//rendering home page
 app.get('/home', (req, res) => {
     if (isAuthenticated == true) {    //ensure that user cannot directly access home page without permission.
         fs.readFile('items.json', function (error, data) {
