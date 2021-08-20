@@ -5,9 +5,11 @@ const fs = require('fs');
 const connectDB = require('./connection.js');
 const userDetails = require('./user');
 const UserPost = require('./userpost');
-const { isObject } = require('util');
+// const { isObject } = require('util');
+// const { urlencoded } = require('body-parser');
+const userpost = require('./userpost');
 const server = require('http').createServer(app);
-const io = require('socket.io')(server,{cors: {origin :"*"}});
+const io = require('socket.io')(server, { cors: { origin: "*" } });
 //connecting mongoose from connection.js
 connectDB();
 
@@ -17,18 +19,37 @@ app.set('view engine', 'ejs');   //setting view engine to ejs
 app.use(express.static('public'))  //telling the app to look for the front-end files in public folder
 app.use(bodyParser.json()); // for parsing application/json
 
+//empty global variable
+let userInput = "";
+
 //rendering the index page
 app.get('/', (req, res) => {
     res.render('index.ejs');
 })
 
-app.get('/search', (req,res) =>{
-    res.render('search.ejs');
+app.get('/search', (req, res) => {
+    if (isAuthenticated) {
+        fs.readFile('items.json', function (error, data) {
+            if (error) {
+                res.status(500).end();
+            } else {
+                UserPost.collection.find({ userpost: userInput }).toArray(function (err, doc) // read user input from global value and find if a value exists
+                {
+                    res.render('search.ejs', {     //if not error then render home.ejs and read the trending.json file
+                        items: JSON.parse(data),
+                        userpost: doc //getting posts from db
+                    });
+                })
+            }
+        })
+    } else {
+        res.render('index.ejs');
+    }
 })
 
 //rendering home page
 app.get('/home', (req, res) => {
-    if (isAuthenticated == true) {    //ensure that user cannot directly access home page without permission.
+    if (isAuthenticated) {    //ensure that user cannot directly access home page without permission.
         fs.readFile('items.json', function (error, data) {
             if (error) {
                 res.status(500).end();
@@ -90,9 +111,21 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.post('/home', async (req,res) =>{
+app.post('/home', async (req, res) => {
     isAuthenticated = false;
-    return res.json({status: "logged-out"})
+    return res.json({ status: "logged-out" })
+})
+
+app.post('/search', async (req, res) => {
+    const searchKey = req.body.search;
+    userInput = searchKey;  //assigning user input to userInput value
+    //The toArray() method returns an array that contains all the documents from a cursor.
+    UserPost.collection.find({ userpost: searchKey }).toArray(function (err, doc) //find if a value exists
+    {
+
+    });
+    res.json({ status: "done" });
+    return userInput;   //returning global value
 })
 
 //have to user server.listen instead of app
@@ -100,15 +133,15 @@ server.listen(3000, () => {
     console.log("Server is started")
 });
 
-io.on('connection', (socket) =>{  
-    socket.on("message",(data)=>{
+io.on('connection', (socket) => {
+    socket.on("message", (data) => {
         //saving data to the database
         const newPost = UserPost.create({
             userpost: data
         })
     })
-    socket.on('message',data =>{
-        socket.emit('message',data) //io will send the 'message' to all the user on the server
+    socket.on('message', data => {
+        socket.emit('message', data) //io will send the 'message' to all the user on the server
         //if I use socket then it will only send to the current user.
     })
 })

@@ -23,17 +23,12 @@
         </div>
         <div class="nav-search">
             <input type="text" id="search" placeholder="    Search...">
+            <button class="search-btn" id="search-btn">Search</button>
         </div>
         <div class="user-control">
-            <div class="nav-username">
-                <span id="username"></span>
-            </div>
-            <div class="nav-friends">
-                <i class="fas fa-user-friends"></i>
-            </div>
-            <div class="sign-out">
-                <i class="fas fa-sign-out-alt" id="logout"></i>
-            </div>
+            <div class="nav-username"><span id="username"></span></div>
+            <div class="nav-friends"><i class="fas fa-user-friends"></i></div>
+            <div class="sign-out"><i class="fas fa-sign-out-alt" id="logout"></i></div>
         </div>
     </div>
 
@@ -54,7 +49,7 @@
                 <form class="post-status" id="post-status">
                     <div class="post-msg">
                         <textarea class="input-msg" name="input-msg" id="input-msg" rows="1"
-                            placeholder="Share your favourite recipes with others." required ></textarea>
+                            placeholder="Share your favourite recipes with others." required></textarea>
                     </div>
                     <div class="post-btn">
                         <button class="post-btn" id="post-btn">Post</button>
@@ -71,29 +66,28 @@
                                 <i class="far fa-thumbs-down"> Dislike</i>
                             </div>
                         </div>
-                    <% })%>
+                        <% })%>
                 </div>
+            </div>
         </div>
-    </div>
 
-    <div class="trends">
-        <div class="trending">Trending
-            <i class="fas fa-fire-alt"></i>
+        <div class="trends">
+            <div class="trending">Trending
+                <i class="fas fa-fire-alt"></i>
+            </div>
+            <% items.Trending.forEach(function(item){ %>
+                <%#looping through the json file %>
+                    <div class="recipe" data-item-id="<%= item.id %>">
+                        <%#assigning ID accordingly %>
+                            <div class="food-title">
+                                <%= item.name %><%#assigning item name %>
+                            </div>
+                            <div class="food-description">
+                                <%= item.description %>
+                            </div>
+                    </div>
+            <% }) %>
         </div>
-        <% items.Trending.forEach(function(item){ %>
-            <%#looping through the json file %>
-                <div class="recipe" data-item-id="<%= item.id %>">
-                    <%#assigning ID accordingly %>
-                        <div class="food-title">
-                            <%= item.name %>
-                                <%#assigning item name %>
-                        </div>
-                        <div class="food-description">
-                            <%= item.description %>
-                        </div>
-                </div>
-        <% }) %>
-    </div>
     </div>
 </body>
 

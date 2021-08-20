@@ -4,22 +4,20 @@ if (document.readyState == 'loading') {
 } else {
     ready();
 }
-import {GetUser, LogOut} from './nav.js';
+import {GetUser, LogOut, SearchBar} from './nav.js';
+
 function ready() {
     const logout = document.getElementById('logout');
     GetUser();
     logout.addEventListener('click', LogOut);
 }
 
-const logo = document.getElementById('logo');
-logo.addEventListener('click', ()=>{    //onclick refresh the page.
-    window.location.href = "/home";
-})
-
 var socket = io('http://localhost:3000');
 socket.on("message", data => {
     addPost(data);
 })
+
+const searchBtn = document.getElementById('search-btn').addEventListener('click',SearchBar);
 
 const postForm = document.getElementById('post-status');
 postForm.addEventListener('submit', event => {
@@ -28,7 +26,6 @@ postForm.addEventListener('submit', event => {
     socket.emit('message', userInput);  //sending messages
     document.getElementById('input-msg').value = "";    //clearing textbox field.
 });
-
 
 function addPost(data) {
     var feedPage = document.getElementsByClassName('feed-div')[0];

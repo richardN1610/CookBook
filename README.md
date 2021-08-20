@@ -18,3 +18,11 @@ Version 1.06 {
   #needs to work with session to keep user login.
   #needs to tidy up css to make the web responsive
 }
+
+Version 1.07{
+  nav.js was created to get rid of repeatitive code
+  a small css layout has been fixed to ensure that it will be responsive on different web browser size
+  search page has been created
+
+  #needs to work on search bar and return results to the user.
+}

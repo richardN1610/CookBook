@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="searchbar.css">
     <script src="search.js" type="module"></script> <!--type="module" to solve the issue cannot import module outside..., simpliest solution I found-->
     <title>Document</title>
 </head>
@@ -20,6 +21,7 @@
         </div>
         <div class="nav-search">
             <input type="text" id="search" placeholder="    Search...">
+            <button class="search-btn" id="search-btn">Search</button>
         </div>
         <div class="user-control">
             <div class="nav-username">
@@ -46,7 +48,46 @@
                 <li><img src="/images/dessert.png"> Dessert</li>
             </ul>
         </div>
+
+        <div class="middle-contents">
+            <div class="search-title">
+                <span>Search Result</span>
+            </div>
+            <div class="feed-div">
+                <%userpost.forEach(post=> {%>
+                    <div class="post-box">
+                        <div class="msg-box">
+                            <%= post.userpost %>
+                        </div>
+                        <div class="like">
+                            <i class="fab fa-gratipay"> Love</i>
+                            <i class="far fa-thumbs-down"> Dislike</i>
+                        </div>
+                    </div>
+                <% })%>
+            </div>
+        </div>
+
+        <div class="trends">
+            <div class="trending">Trending
+                <i class="fas fa-fire-alt"></i>
+            </div>
+            <% items.Trending.forEach(function(item){ %>
+                <%#looping through the json file %>
+                    <div class="recipe" data-item-id="<%= item.id %>">
+                        <%#assigning ID accordingly %>
+                            <div class="food-title">
+                                <%= item.name %>
+                                    <%#assigning item name %>
+                            </div>
+                            <div class="food-description">
+                                <%= item.description %>
+                            </div>
+                    </div>
+            <% }) %>
+        </div>
     </div>
+
 
 </body>
 </html>
